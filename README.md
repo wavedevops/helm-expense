@@ -1,38 +1,4 @@
-# helm commands
-### helm install
-````sh
-helm install nginx .
-````
 
-```sh
-helm install nginx helm-charts/demo-chart -f helm-1.yaml
-```
-
-### Explanation:
-1. **`helm install`**  
-   This is the Helm command to install a new Helm chart.
-
-2. **`nginx`**  
-   This is the **release name**. A release is a deployed instance of a Helm chart. You can name it anything you want.
-
-3. **`helm-charts/demo-chart`**
-    - This is the **chart reference**.
-    - It specifies the location of the Helm chart that you are installing.
-    - Here, `helm-charts` is the directory or repository where the chart is stored, and `demo-chart` is the specific chart being installed.
-
-4. **`-f helm-1.yaml`**
-    - The `-f` flag allows you to specify a **custom values file**.
-    - `helm-1.yaml` contains **overrides** for the default values of the Helm chart.
-    - This allows you to customize the deployment (e.g., changing replicas, setting environment variables, or configuring service types).
-
-### What This Command Does:
-- It installs the `demo-chart` Helm chart from `helm-charts` with the release name `nginx`.
-- It applies custom values from `helm-1.yaml` instead of using the default values.
-- The application (e.g., Nginx or any other workload defined in `demo-chart`) gets deployed into the Kubernetes cluster.
-
-Would you like to see an example of what `helm-1.yaml` might contain? 🚀
-
-------------------------------------------------------------------------------------------------
 To access your **nginx-54b9c68f67-hcs24** pod in your local Chrome browser, follow these steps:
 
 ### **Step 1: Get Pod Details**
@@ -74,7 +40,7 @@ http://<NodeIP>:<NodePort>
 Replace `<NodeIP>` with your cluster node's IP and `<NodePort>` with the assigned port.
 
 Let me know if you need more help! 🚀
-------------------------------------------------------------------------------------------------
+---
 
 
 Here are some **basic Helm commands** that you’ll use frequently:
@@ -223,3 +189,40 @@ helm search repo nginx
 | `helm search repo nginx` | Search for charts |
 
 Would you like help with a specific Helm issue? 🚀
+
+
+---
+# helm commands
+### helm install
+````sh
+helm install nginx .
+````
+
+```sh
+helm install nginx helm-charts/demo-chart -f helm-1.yaml
+```
+
+### Explanation:
+1. **`helm install`**  
+   This is the Helm command to install a new Helm chart.
+
+2. **`nginx`**  
+   This is the **release name**. A release is a deployed instance of a Helm chart. You can name it anything you want.
+
+3. **`helm-charts/demo-chart`**
+   - This is the **chart reference**.
+   - It specifies the location of the Helm chart that you are installing.
+   - Here, `helm-charts` is the directory or repository where the chart is stored, and `demo-chart` is the specific chart being installed.
+
+4. **`-f helm-1.yaml`**
+   - The `-f` flag allows you to specify a **custom values file**.
+   - `helm-1.yaml` contains **overrides** for the default values of the Helm chart.
+   - This allows you to customize the deployment (e.g., changing replicas, setting environment variables, or configuring service types).
+
+### What This Command Does:
+- It installs the `demo-chart` Helm chart from `helm-charts` with the release name `nginx`.
+- It applies custom values from `helm-1.yaml` instead of using the default values.
+- The application (e.g., Nginx or any other workload defined in `demo-chart`) gets deployed into the Kubernetes cluster.
+
+Would you like to see an example of what `helm-1.yaml` might contain? 🚀
+---

@@ -1,6 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  namespace: {{ .Values.Namespace }}
   name: {{ .Values.app.image }}
   labels:
     app: {{ .Values.app.image }}
@@ -19,3 +20,6 @@ spec:
           image: {{ .Values.app.image }}:{{ .Values.version }}
           ports:
               - containerPort: {{ .Values.service.targetPort }}
+          envFrom:
+            - configMapRef:
+                name: {{ .Values.app.name }}
