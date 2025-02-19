@@ -1,0 +1,11 @@
+app:
+  name: frontend
+  image : nginx
+
+Namespace: expense
+
+version: latest
+service:
+  type: LoadBalancer
+  port: 80
+  targetPort: 80
