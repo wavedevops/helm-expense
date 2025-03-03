@@ -1,4 +1,6 @@
-apiVersion: v1
+apiVersion: v2
 name: nginx
-description: "this is nginx chart file"
+description: This is an Nginx chart file.
 version: 0.0.1
+type: application
+#appVersion: "1.21.6"
