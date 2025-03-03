@@ -3,4 +3,4 @@ name: nginx
 description: This is an Nginx chart file.
 version: 0.0.1
 type: application
-#appVersion: "1.21.6"
+appVersion: "1.21.6"
