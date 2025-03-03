@@ -1,5 +1,4 @@
 apiVersion: v1
-name: expense
-description: demo chart file
-type: application
+name: nginx
+description: "this is nginx chart file"
 version: 0.0.1

@@ -1,25 +1,25 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: deployment
 metadata:
-  namespace: {{ .Values.Namespace }}
-  name: {{ .Values.app.image }}
+  name: nginx
+  namespace: expense
   labels:
-    app: {{ .Values.app.image }}
+    app: web
+    component: {{ .Values.label.component}}
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
-      app: {{ .Values.app.image }}
+      app: web
+      component: {{ .Values.label.component}}
   template:
     metadata:
       labels:
-        app: {{ .Values.app.image }}
+        app: web
+        component: {{ .Values.label.component}}
     spec:
-      containers:  # Fixed indentation here
-        - name: {{ .Values.app.image }}
-          image: {{ .Values.app.image }}:{{ .Values.version }}
-          ports:
-              - containerPort: {{ .Values.service.targetPort }}
-          envFrom:
-            - configMapRef:
-                name: {{ .Values.app.name }}
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 81
