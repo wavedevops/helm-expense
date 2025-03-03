@@ -3,29 +3,13 @@ kind: Service
 metadata:
   name: nginx-service
   namespace: expense
-  labels:
-    app: nginx
-    tier: {{ .Values.label.component}}  
 spec:
   selector:
+    selector:
     app: nginx
-    tier: {{ .Values.label.component}}
-  ports:
-  - protocol: TCP
-    port: 80
-    targetPort: 80
-  type: LoadBalancer
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: expense-service
-  namespace: expense
-spec:
-  selector:
-    app.kubernetes.io/name: nginx
+    tier: frontend #{{.Values.label.component}}
   ports:
     - port: 8080 # kubernetes internal communication port (ingress)
       protocol: TCP
       targetPort: 81  # app port
-  type: LoadBalancer'
+  type: LoadBalancer

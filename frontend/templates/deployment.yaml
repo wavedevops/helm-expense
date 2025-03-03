@@ -5,18 +5,18 @@ metadata:
   namespace: expense
   labels:
     app: web
-    component: {{ .Values.label.component}}
+    component: frontend #{{ .Values.label.component}}
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: web
-      component: {{ .Values.label.component}}
+      component: frontend #{{ .Values.label.component}}
   template:
     metadata:
       labels:
         app: web
-        component: {{ .Values.label.component}}
+        component: frontend #{{ .Values.label.component}}
     spec:
       containers:
       - name: nginx
